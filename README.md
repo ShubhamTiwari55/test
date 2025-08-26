@@ -121,8 +121,8 @@ Questions:
 4. **Scalability**: Support for global airport database (7000+ airports)
 5. **Reliability**: Offline-capable with local datasets
 
-**Screenshot Reference**: `02_chatgpt_project_validation_consultation.png`
-
+<img width="1536" height="816" alt="image" src="https://github.com/user-attachments/assets/0e9be9ba-bd0a-48da-9bf8-40172d589d2b" />
+<img width="1552" height="812" alt="image" src="https://github.com/user-attachments/assets/d1874c52-d08a-4a9d-9992-2363699aac3c" />
 ---
 
 ## 3. Design Process & UI Development
@@ -139,19 +139,10 @@ Questions:
 
 **v0 Design Prompt**:
 ```
-Create a modern, clean landing page for a "Scenic Seat Recommender" web app. 
-The page should have:
+Description: Build a web application using LLM-powered IDE that helps air travelers choose the best seat for enjoying scenic views during their flight. E.g., Many travelers want to see beautiful sunrises or sunsets from their airplane window, but they often end up on the wrong side of the aircraft and miss these moments entirely. Here are the outputs : ● Seat Recommendation ● Interactive Visualization (Bonus) ○ E.g., display a map with the flight path and real-time sun position overlay. Definition of Done: ● Design a good UX and decide on the appropriate input to take from the user ● Have a UI that you can demonstrate ○ UI should be clear for the User without any additional explanations ● Don’t bother about collecting flight data. You can assume that flights between two cities always follow the same air path. Note: Remember, you can go beyond the basics with this problem. Demonstrate your ability to create a user-friendly app and think creatively.
 
-1. Hero section with compelling headline "Find Your Perfect Window Seat"
-2. Flight form with fields for departure airport, arrival airport, date, and time
-3. Results section showing seat recommendation (Left/Right) with explanation
-4. Features section highlighting the benefits (accurate calculations, global coverage, etc.)
-5. Statistics section with impressive numbers (flights analyzed, accuracy rate, etc.)
-6. Testimonials from happy travelers
-7. Modern gradient background, clean typography, and travel-themed icons
 
-The design should feel premium but approachable, like a modern travel booking site.
-Color scheme: blues and teals for trust, with accent colors for call-to-actions.
+generate a comprehensive design for the whole website, make sure the UX looks creative and modern
 ```
 
 ### 3.2 Iterative Design Refinement
@@ -187,9 +178,9 @@ Color scheme: blues and teals for trust, with accent colors for call-to-actions.
    - **Reasoning**: Progressive disclosure, mobile-friendly
 
 **Screenshot References**: 
-- `03_v0_design_prompt_and_mockup.png`
-- `04_design_modifications_cursor_implementation.png`
-- `07_ui_implementation_cursor_collaboration.png`
+<img width="1919" height="868" alt="image" src="https://github.com/user-attachments/assets/d87e0ee6-1ae4-4b32-95da-e998c64a6674" />
+<img width="1919" height="870" alt="image" src="https://github.com/user-attachments/assets/833c5b54-9490-4e3b-ae4b-3b3d00f691ff" />
+<img width="1199" height="917" alt="image" src="https://github.com/user-attachments/assets/31993770-8ccc-4da4-911d-aa7d9b1e8426" />
 
 ---
 
@@ -319,6 +310,7 @@ const sunPosition = SunCalc.getPosition(date, lat, lon);
 - Network latency
 
 ---
+<img width="1191" height="914" alt="image" src="https://github.com/user-attachments/assets/9b7f82d9-e900-4c56-9b68-2998da8e9242" />
 
 ## 6. Decision Making & Trade-offs
 
@@ -556,7 +548,7 @@ const filtered = airports.filter(a =>
 
 **Impact**: User could now type "Delhi" and see "DEL — Indira Gandhi International"
 
-**Screenshot Reference**: `06_airport_search_enhancement_discussion.png`
+<img width="1215" height="911" alt="image" src="https://github.com/user-attachments/assets/5b88e979-ce45-49eb-a590-19d442aa0690" />
 
 ---
 

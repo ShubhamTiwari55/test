@@ -5,9 +5,8 @@
 This document chronicles the development journey of a **Scenic Seat Recommender** web application, built using Cursor IDE as an LLM-powered pair programming assistant. The project demonstrates strategic decision-making, iterative problem-solving, and effective collaboration with AI tools to create a production-ready application that helps air travelers choose optimal window seats for scenic views during flights.
 
 **🚀 Live Application Links:**
-- **Frontend**: `[TO BE UPDATED WITH VERCEL URL]`
-- **Backend**: `[TO BE UPDATED WITH RAILWAY/RENDER URL]`
-- **GitHub Repository**: `[TO BE UPDATED WITH REPO URL]`
+- **Deployed Link**: `[TO BE UPDATED WITH VERCEL URL]`
+- **GitHub Repository**: `[[TO BE UPDATED WITH REPO URL]](https://github.com/ravikumar50/Seat-Recommender)`
 
 ---
 
@@ -730,9 +729,8 @@ useEffect(() => {
    - Smooth scrolling between sections
    - Loading states for user feedback
 
-**Screenshot References**: 
-- `09_working_application_full_flow.png`
-- `10_mobile_responsive_testing.png`
+![WhatsApp Image 2025-08-26 at 10 11 24_afcf876c](https://github.com/user-attachments/assets/5b9ec88b-e0f4-4367-b7d8-a3047f5e065f)
+![WhatsApp Image 2025-08-26 at 10 11 39_d05abc1c](https://github.com/user-attachments/assets/ed0ce01b-39ee-4510-82d0-22ac30c4e162)
 
 ---
 

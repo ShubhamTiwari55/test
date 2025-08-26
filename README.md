@@ -1,4 +1,4 @@
-<img width="1071" height="559" alt="image" src="https://github.com/user-attachments/assets/3f81a1a2-b53a-4690-8eb1-41f4e0db8e44" /># Seat Recommendation System: Project Journey & Documentation
+# Seat Recommendation System: Project Journey & Documentation
 
 ## Executive Summary
 
@@ -48,7 +48,7 @@ Unlike static seat maps or airline recommendations, our system performs real-tim
 <img width="1199" height="562" alt="image" src="https://github.com/user-attachments/assets/d47fa074-4f3f-496b-bd7c-d97204a0b684" />
 <img width="1071" height="559" alt="image" src="https://github.com/user-attachments/assets/e0c63b09-5540-4eec-8524-9c5acf8d751d" />
 <img width="1194" height="504" alt="image" src="https://github.com/user-attachments/assets/fb3b1c84-9f2b-436d-9b06-4f40c661d40c" />
-
+<img width="1071" height="559" alt="image" src="https://github.com/user-attachments/assets/3f81a1a2-b53a-4690-8eb1-41f4e0db8e44" />
 ---
 
 ## 2. Original Prompt & Objectives

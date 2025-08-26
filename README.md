@@ -22,11 +22,10 @@ This document chronicles the development journey of a **Scenic Seat Recommender*
 7. [Implementation Overview](#7-implementation-overview)
 8. [Challenges & Resolutions](#8-challenges--resolutions)
 9. [LLM Collaboration & Code Review Process](#9-llm-collaboration--code-review-process)
-10. [Testing & Performance Optimization](#10-testing--performance-optimization)
-11. [Deployment & Production Setup](#11-deployment--production-setup)
-12. [Insights & Refinements](#12-insights--refinements)
-13. [Future Improvements](#13-future-improvements)
-14. [Conclusion](#14-conclusion)
+10. [Deployment & Production Setup](#11-deployment--production-setup)
+11. [Insights & Refinements](#12-insights--refinements)
+12. [Future Improvements](#13-future-improvements)
+13. [Conclusion](#14-conclusion)
 
 ---
 
@@ -505,8 +504,8 @@ function determineBestSeat(flightPath, sunPosition) {
   };
 }
 ```
+<img width="1197" height="901" alt="image" src="https://github.com/user-attachments/assets/3e7dad74-8ca6-43a2-8067-50441c3c5885" />
 
-**Screenshot Reference**: `08_algorithm_enhancement_user_provided.png`
 
 ---
 
@@ -629,56 +628,9 @@ const route = turf.greatCircle(from, to);
 
 ---
 
-## 10. Testing & Performance Optimization
+## 10. Deployment & Production Setup
 
-### 10.1 Performance Optimizations
-
-**Caching Strategy**:
-```javascript
-const cache = new NodeCache({ stdTTL: 86400 }); // 24-hour cache
-
-// Airport lookup caching
-const cacheKey = `coords:${trimmedQuery}`;
-const cached = cache.get(cacheKey);
-if (cached) return cached;
-```
-
-**Frontend Optimizations**:
-```javascript
-// Dynamic imports for SSR issues
-const Map = dynamic(() => import('../components/Map'), { ssr: false });
-
-// Debounced autocomplete
-const [suggestions, setSuggestions] = useState([]);
-useEffect(() => {
-  const timer = setTimeout(() => fetchSuggestions(query), 300);
-  return () => clearTimeout(timer);
-}, [query]);
-```
-
-### 10.2 Performance Benchmarks
-
-**Critical Discovery**: Local operations >> API calls
-
-**Benchmarks**:
-- Airport lookup: 2ms (local) vs 250ms (API)
-- Flight calculation: 5ms (custom) vs 15ms (library)
-- Total recommendation: ~10ms vs ~500ms
-
-**Caching Impact**:
-```javascript
-// Without caching: 7-10ms per airport lookup
-// With caching: 0.1ms for repeated lookups
-// 70x performance improvement for frequent searches
-```
-
-**Screenshot Reference**: `11_performance_benchmarks_dev_tools.png`
-
----
-
-## 11. Deployment & Production Setup
-
-### 11.1 Production Deployment Links
+### 10.1 Production Deployment Links
 
 **🚀 Live Application**:
 - **Frontend**: `[TO BE UPDATED WITH VERCEL URL]`
@@ -690,7 +642,7 @@ useEffect(() => {
 - **Average Response Time**: `[TO BE UPDATED]`
 - **Bundle Size**: `[TO BE UPDATED]`
 
-### 11.2 Deployment Strategy Evaluation
+### 10.2 Deployment Strategy Evaluation
 
 **Option 1**: Vercel + Railway (Chosen)
 - **Reasoning**: Free tiers, automatic deployments, excellent DX
@@ -702,7 +654,7 @@ useEffect(() => {
 - **Complexity**: Higher setup overhead
 - **Cost**: Free tier limitations
 
-### 11.3 Production Configuration
+### 10.3 Production Configuration
 
 **Docker Setup for Scalability**:
 ```dockerfile
@@ -730,9 +682,9 @@ CMD ["npm", "start"]
 
 ---
 
-## 12. Insights & Refinements
+## 11. Insights & Refinements
 
-### 12.1 Algorithm Enhancement Journey
+### 11.1 Algorithm Enhancement Journey
 
 **Initial Simple Recommendation**:
 ```javascript
@@ -754,7 +706,7 @@ function determineBasicSeat(sunAzimuth, flightBearing) {
 - ✅ **Accuracy**: Multi-factor analysis improves recommendations
 - ✅ **Transparency**: Users understand the reasoning process
 
-### 12.2 UI/UX Evolution
+### 11.2 UI/UX Evolution
 
 **Key Learning**: Users expect immediate visual feedback
 
@@ -784,9 +736,9 @@ useEffect(() => {
 
 ---
 
-## 13. Future Improvements
+## 12. Future Improvements
 
-### 13.1 Enhanced Data Integration
+### 12.1 Enhanced Data Integration
 
 **Real Flight Path Data**:
 - Integration with FlightAware or similar APIs
@@ -798,7 +750,7 @@ useEffect(() => {
 - Seat map integration for specific aircraft types
 - Wing obstruction calculations
 
-### 13.2 Advanced User Experience
+### 12.2 Advanced User Experience
 
 **Multi-Leg Flight Support**:
 ```javascript
@@ -814,7 +766,7 @@ const flights = [
 - Historical recommendation accuracy tracking
 - Saved airport pairs for frequent travelers
 
-### 13.3 Technical Enhancements
+### 12.3 Technical Enhancements
 
 **Real-Time Weather Integration**:
 - Cloud cover probability from weather APIs
@@ -828,9 +780,9 @@ const flights = [
 
 ---
 
-## 14. Conclusion
+## 13. Conclusion
 
-### 14.1 Project Success Metrics
+### 13.1 Project Success Metrics
 
 **Technical Achievements**:
 - ✅ **Performance**: Sub-100ms recommendation generation
@@ -845,7 +797,7 @@ const flights = [
 - ✅ **Problem Solving**: Iterative refinement approach
 - ✅ **User-Centric Design**: UX-first development philosophy
 
-### 14.2 Key Decision-Making Insights
+### 13.2 Key Decision-Making Insights
 
 **Principle 1: Question Everything**
 - Don't accept first AI suggestions without analysis
@@ -862,7 +814,7 @@ const flights = [
 - Real user feedback drives priorities
 - Technical debt is manageable with good architecture
 
-### 14.3 LLM Collaboration Best Practices
+### 13.3 LLM Collaboration Best Practices
 
 **Effective Patterns**:
 1. **Contextual Prompting**: Provide business constraints and user needs
@@ -877,7 +829,7 @@ const flights = [
 - ❌ Ignoring performance implications
 - ❌ Neglecting user experience for technical elegance
 
-### 14.4 Final Reflection
+### 13.4 Final Reflection
 
 The **Scenic Seat Recommender** project successfully demonstrates how effective human-AI collaboration can produce production-ready applications. The key to success was maintaining critical thinking throughout the development process—questioning AI suggestions, evaluating alternatives, and making informed decisions based on project constraints and user needs.
 
@@ -886,122 +838,3 @@ The iterative approach of building, testing, and refining led to a solution that
 This project serves as a template for leveraging LLM-powered development tools effectively—not as code generators to be blindly trusted, but as intelligent pair programmers to collaborate with, question, and guide toward optimal solutions.
 
 ---
-
-## Appendix A: Screenshot Documentation Guide
-
-### Complete Screenshot Inventory (12 Screenshots)
-
-#### **Development Process Screenshots**
-
-1. **`01_initial_cursor_prompt_and_response.png`** (Section 2)
-   - **Content**: First conversation with Cursor showing initial project prompt
-   - **Purpose**: Demonstrates thoughtful problem articulation and AI response evaluation
-   - **Key Elements**: Full prompt text, Cursor's analysis of tech stack options
-
-2. **`02_chatgpt_project_validation_consultation.png`** (Section 2)
-   - **Content**: ChatGPT discussion validating project feasibility
-   - **Purpose**: Shows research and validation approach before implementation
-   - **Key Elements**: Technical questions, feasibility analysis, edge case identification
-
-3. **`03_v0_design_prompt_and_mockup.png`** (Section 3)
-   - **Content**: v0 by Vercel prompt and generated design mockup
-   - **Purpose**: Demonstrates design thinking and tool utilization
-   - **Key Elements**: Design requirements, v0 output, color scheme decisions
-
-#### **Decision Making Screenshots**
-
-4. **`04_api_vs_dataset_decision_conversation.png`** (Section 6)
-   - **Content**: Cursor conversation about AviationStack API vs local dataset
-   - **Purpose**: Shows systematic evaluation of technical alternatives
-   - **Key Elements**: Cost analysis, performance considerations, final decision rationale
-
-5. **`05_turf_js_error_and_custom_solution.png`** (Section 6)
-   - **Content**: ESM module error with Turf.js and decision to implement custom solution
-   - **Purpose**: Demonstrates problem-solving and technical decision-making
-   - **Key Elements**: Error message, alternative evaluation, custom implementation choice
-
-6. **`06_airport_search_enhancement_discussion.png`** (Section 8)
-   - **Content**: Conversation about improving autocomplete from IATA-only to city search
-   - **Purpose**: Shows user experience prioritization and feature enhancement
-   - **Key Elements**: Problem identification, solution brainstorming, implementation
-
-#### **Implementation Screenshots**
-
-7. **`07_ui_implementation_cursor_collaboration.png`** (Section 3)
-   - **Content**: Cursor conversation implementing the v0 design in Next.js
-   - **Purpose**: Shows effective AI collaboration for UI development
-   - **Key Elements**: Design-to-code translation, component structure decisions
-
-8. **`08_algorithm_enhancement_user_provided.png`** (Section 7)
-   - **Content**: Implementation of user-provided advanced recommendation algorithm
-   - **Purpose**: Demonstrates code review and algorithmic improvement
-   - **Key Elements**: Before/after algorithm comparison, reasoning enhancement
-
-#### **Testing & Validation Screenshots**
-
-9. **`09_working_application_full_flow.png`** (Section 12)
-   - **Content**: Complete user flow from input to recommendation with map
-   - **Purpose**: Demonstrates final working product
-   - **Key Elements**: Form submission, recommendation display, interactive map
-
-10. **`10_mobile_responsive_testing.png`** (Section 12)
-    - **Content**: Application running on mobile devices showing responsive design
-    - **Purpose**: Shows attention to cross-platform user experience
-    - **Key Elements**: Mobile layout, touch interactions, responsive elements
-
-#### **Performance & Deployment Screenshots**
-
-11. **`11_performance_benchmarks_dev_tools.png`** (Section 10)
-    - **Content**: Browser dev tools showing load times, network requests, bundle analysis
-    - **Purpose**: Demonstrates performance optimization focus
-    - **Key Elements**: Network tab, Performance tab, Lighthouse scores
-
-12. **`12_production_deployment_configuration.png`** (Section 11)
-    - **Content**: Deployment setup on Vercel/Railway with environment configuration
-    - **Purpose**: Shows production readiness and deployment expertise
-    - **Key Elements**: Build logs, environment variables, live URLs
-
-### Screenshot Organization Strategy
-
-```
-screenshots/
-├── 01_development_process/
-│   ├── 01_initial_cursor_prompt_and_response.png
-│   ├── 02_chatgpt_project_validation_consultation.png
-│   └── 03_v0_design_prompt_and_mockup.png
-├── 02_decision_making/
-│   ├── 04_api_vs_dataset_decision_conversation.png
-│   ├── 05_turf_js_error_and_custom_solution.png
-│   └── 06_airport_search_enhancement_discussion.png
-├── 03_implementation/
-│   ├── 07_ui_implementation_cursor_collaboration.png
-│   └── 08_algorithm_enhancement_user_provided.png
-├── 04_testing_validation/
-│   ├── 09_working_application_full_flow.png
-│   └── 10_mobile_responsive_testing.png
-└── 05_deployment/
-    ├── 11_performance_benchmarks_dev_tools.png
-    └── 12_production_deployment_configuration.png
-```
-
-### Screenshot Quality Requirements
-
-**Technical Standards**:
-- **Resolution**: Minimum 1920x1080 for desktop screenshots
-- **Format**: PNG for UI screenshots, JPEG for documentation
-- **Annotations**: Red arrows/boxes highlighting key elements
-- **Text Clarity**: Ensure all text is readable at document scale
-
-**Content Standards**:
-- **Context**: Each screenshot should tell a clear story
-- **Relevance**: Directly supports decision-making narrative
-- **Progression**: Shows logical development flow
-- **Completeness**: Captures both problems and solutions
-
----
-
-*Document Version: 2.0*  
-*Last Updated: January 2024*  
-*Total Pages: 17*  
-*Word Count: ~7,500 words*  
-*Screenshots: 12 comprehensive documentation images*
